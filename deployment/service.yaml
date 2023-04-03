@@ -3,9 +3,11 @@ kind: Service
 metadata:
   name: sample-service
 spec:
+  type: NodePort
   selector:
     app.kubernetes.io/name: sample-app
   ports:
     - protocol: TCP
       port: 80
-      targetPort: 9376
+      targetPort: 8080
+      nodePort: 30080
