@@ -1,1 +1,37 @@
+apiVersion: apps/v1
 
+kind: Deployment
+
+metadata:
+
+  name: sample-app
+
+spec:
+
+  selector:
+
+    matchLabels:
+
+      app: sample-app
+
+  replicas: 2 # tells deployment to run 2 pods matching the template
+
+  template:
+
+    metadata:
+
+      labels:
+
+        app: sample-app
+
+    spec:
+
+      containers:
+
+      - name: sample-app
+
+        image: 309244954780.dkr.ecr.us-east-1.amazonaws.com/virtual-demo:v1
+
+        ports:
+
+        - containerPort: 8080
